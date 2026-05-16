@@ -1,9 +1,9 @@
 name: Build OBI Executable
 
 on:
-  workflow_dispatch:  # 让你可以手动触发
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'  # 每周自动检查更新
+    - cron: '0 0 * * 0'
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       with:
         python-version: '3.11'
     - name: Install dependencies
-      run: pip install -r requirements.txt pyinstaller
+      run: pip install pyserial pyinstaller
     - name: Build with PyInstaller
       run: pyinstaller --onefile --windowed --name "OBI" main.py
     - name: Upload artifact
