@@ -16,8 +16,10 @@ jobs:
         python-version: '3.11'
     - name: Install dependencies
       run: pip install pyserial pyinstaller
+    - name: List files (to confirm entry point)
+      run: dir
     - name: Build with PyInstaller
-      run: pyinstaller --onefile --windowed --name "OBI" main.py
+      run: pyinstaller --onefile --windowed --name "OBI" OpenBatteryInformation.py
     - name: Upload artifact
       uses: actions/upload-artifact@v6
       with:
